@@ -4,7 +4,7 @@ import TodoInput from './component/TodoInput/TodoInput';
 import TodoList from './component/TodoList/TodoList';
 
 function App() {
-
+  const [completedScreen, setCompletedScreen] = useState(false);
   const [tasks, setTasks] = useState([])
   const addTask = (title, description) => {
     const newTask = { id: Date.now(), title, description, completed: false };
@@ -14,15 +14,40 @@ function App() {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
   };
+  const toggleTaskCompletion = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className='App'>
       <h1>My Todos</h1>
       <div className='Todo-wrapper'>
-        <TodoInput addTask={addTask} />      
+        <TodoInput addTask={addTask} />
+        <div className='btn-area'>
+          <div className='btn'>
+            <button
+              className={`secondarybtn ${completedScreen === false ? 'active' : ''}`}
+              onClick={() => setCompletedScreen(false)}
+            >
+              Todo
+            </button>
+            <button
+              className={`secondarybtn ${completedScreen === true ? 'active' : ''}`}
+              onClick={() => setCompletedScreen(true)}
+            >
+              Completed
+            </button>
+            
+          </div>
+        </div>
         <TodoList
           tasks={tasks}
           removeTask={removeTask}
+          completedScreen={completedScreen}
+          toggleTaskCompletion={toggleTaskCompletion}
         />
       </div>
     </div>
