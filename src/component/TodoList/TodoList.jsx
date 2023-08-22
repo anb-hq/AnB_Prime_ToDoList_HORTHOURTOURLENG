@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './TodoList.css';
 
-function TodoList({tasks}) {
+function TodoList({tasks,removeTask}) {
   
   return (
     <div className='todo-list'>
@@ -16,7 +16,7 @@ function TodoList({tasks}) {
               <button className='btne'>
                 <i className='fa-solid fa-pen-to-square'></i>
               </button>
-              <button className='btnd' >
+              <button className='btnd' onClick={() => removeTask(task.id)}>
                 <i className='fa-solid fa-xmark'></i>
               </button>
             </div>
