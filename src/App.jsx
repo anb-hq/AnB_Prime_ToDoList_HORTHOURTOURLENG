@@ -10,6 +10,10 @@ function App() {
     const newTask = { id: Date.now(), title, description, completed: false };
     setTasks([...tasks, newTask]);
   };
+  const removeTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className='App'>
@@ -18,6 +22,7 @@ function App() {
         <TodoInput addTask={addTask} />      
         <TodoList
           tasks={tasks}
+          removeTask={removeTask}
         />
       </div>
     </div>
