@@ -20,6 +20,12 @@ function App() {
     );
     setTasks(updatedTasks);
   };
+  const updateTask = (taskId, newTitle, newDescription) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, title: newTitle, description: newDescription } : task
+    );
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className='App'>
@@ -48,6 +54,7 @@ function App() {
           removeTask={removeTask}
           completedScreen={completedScreen}
           toggleTaskCompletion={toggleTaskCompletion}
+          updateTask={updateTask}
         />
       </div>
     </div>
