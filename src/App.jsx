@@ -46,12 +46,12 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>My Todos</h1>
-      <div className='Todo-wrapper'>
+      <h1 className='text-center margin-top-20'>My Todos</h1>
+      <div className='Todo-wrapper margin-x-y border-radius-10'>
         <TodoInput addTask={addTask} />
-        <div className='search-container'>
+        <div className='search-container '>
             <i className='search-icon fas fa-search'></i>
-            <input
+            <input className='font border-radius-20 text-center'
               type='text'
               placeholder='Search Title'
               value={searchQuery}
@@ -59,8 +59,8 @@ function App() {
             />
           </div>
         <div className='container-todo-list'>
-          <div className='btn-area'>
-            <div className='btn'>
+          <div className='btn-area flex space-between'>
+            <div className='btn gap padding-10'>
               <button
                 className={`secondarybtn ${completedScreen === false ? 'active' : ''}`}
                 onClick={() => setCompletedScreen(false)}

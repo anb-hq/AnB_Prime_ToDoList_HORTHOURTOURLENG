@@ -32,8 +32,8 @@ function TodoInput({ addTask }) {
   };
 
   return (
-    <div className='todo-input'>
-      <div className='todo-input-item'>
+    <div className='todo-input w-f flex align-center justify-center border-bottom padding '>
+      <div className='todo-input-item flex flex-col align-center padding'>
         <label className='td'>Title</label>
         <input
           type='text'
@@ -44,7 +44,7 @@ function TodoInput({ addTask }) {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <div className='todo-input-item'>
+      <div className='todo-input-item flex flex-col align-center padding'>
         <label className='td'>Description</label>
         <input
           type='text'
@@ -55,7 +55,7 @@ function TodoInput({ addTask }) {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <div className='todo-input-button'>
+      <div className='todo-input-button padding'>
         <button type='button' onClick={handleAddTask} className='primarybtn'>
           Add
         </button>

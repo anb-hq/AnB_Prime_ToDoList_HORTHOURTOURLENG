@@ -43,10 +43,10 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
       {tasks
         .filter((task) => (completedScreen ? task.completed : !task.completed))
         .map((task) => (
-          <div className='todo-list-item' key={task.id}>
+          <div className='todo-list-item flex flex-col padding-15 margin-bottom-10 border-radius-20 margin-top-10' key={task.id}>
             <div>
-              <h3>{task.title}</h3>
-              <p>{task.description}</p>
+              <h3 className='font-t border-bottom '>{task.title}</h3>
+              <p className='font-p border-bottom'>{task.description}</p>
             </div>
             <div className='btndc'>
               <button className='btne' onClick={() => editTask(task.id)}>
@@ -69,22 +69,24 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
       {showBackdrop && <div className='backdrop'></div>}
 
       {showEditPopup && (
-        <div className='edit-popup'>
+        <div className='edit-popup padding-20 text-center border-radius-30'>
           <div>
            <input
+           className='font'
             type='text'
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
            />
            <input
+           className='font'
             type='text'
             value={editedDescription}
             onChange={(e) => setEditedDescription(e.target.value)}
            />
           </div>
           <div>
-            <button className='editbtn' onClick={saveEditedTask}>Save</button>
-            <button className='editbtn' onClick={cancelEdit}>Cancel</button>
+            <button className='editbtn font' onClick={saveEditedTask}>Save</button>
+            <button className='editbtn font' onClick={cancelEdit}>Cancel</button>
           </div>
         </div>
       )}
