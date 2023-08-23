@@ -39,7 +39,7 @@ function App() {
     const filtered = tasks.filter(
       (task) =>
         task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        task.id.toString().includes(searchQuery)
+        task.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredTasks(filtered);
   }, [searchQuery, tasks]);
