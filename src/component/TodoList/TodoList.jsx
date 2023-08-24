@@ -41,9 +41,13 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
   return (
     <div className='todo-list'>
       {tasks
-        .filter((task) => (completedScreen ? task.completed : !task.completed))
-        .map((task) => (
-          <div className='todo-list-item flex flex-col padding-15 margin-bottom-10 border-radius-20 margin-top-10' key={task.id}>
+          .filter((task) => (completedScreen ? task.completed : !task.completed))
+          .map((task) => (
+            <div
+              className={`todo-list-item flex flex-col padding-15 margin-bottom-10 border-radius-20 margin-top-10 ${
+                task.completed ? 'completed-task' : ''
+              }`}
+            key={task.id}>
             <div>
               <h3 className='font-t border-bottom '>{task.title}</h3>
               <p className='font-p border-bottom'>{task.description}</p>

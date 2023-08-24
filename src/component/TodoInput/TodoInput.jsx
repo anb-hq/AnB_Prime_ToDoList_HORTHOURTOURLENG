@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './TodoInput.css';
-
 function TodoInput({ addTask }) {
   const [task, setTask] = useState({
     title: '',

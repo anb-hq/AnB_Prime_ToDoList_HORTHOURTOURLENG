@@ -36,18 +36,32 @@ h1 {
   color: var(--white)
 }
 
-@media (max-width: 700px) {
-  .btn-area input {
-    width: 85%;
-    text-align: center;
-  }
-  .btn {
-    display: flex;
-    justify-content: space-between; /* Fixed typo 'space-betweenn' */
-  }
+.container-todo-list{
+  position: relative;
+}
+.add-button{
+  font-size: 30px;
 }
 
+@media (max-width: 770px) {
+  .btn {
+    display: flex;
+    justify-content: space-between; 
+  }
+}
+.btn-area{
+  overflow-y: scroll;
+}
+.btn-area::-webkit-scrollbar{
+  width: 0;
+}
+.secondarybtn{
+  height: 4vh;
+}
 @media (min-width: 770px) {
+  .btn-area{
+    max-width:19%;
+  }
   .container-todo-list {
     display: flex;
     justify-content: space-between;
@@ -73,5 +87,9 @@ h1 {
   }
   .search-icon{
     left: 37%;
+  }
+  .add-button{
+    background-color: inherit;
+    font-size: 30px;
   }
 }

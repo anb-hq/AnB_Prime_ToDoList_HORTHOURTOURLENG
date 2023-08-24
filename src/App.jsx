@@ -43,12 +43,20 @@ function App() {
     );
     setFilteredTasks(filtered);
   }, [searchQuery, tasks]);
+  const [buttons, setButtons] = useState([]);
+  const addButton = () => {
+    const newButton = { id: Date.now(), label: 'NewButton' };
+    setButtons([...buttons, newButton]);
+  };
 
   return (
     <div className='App'>
       <h1 className='text-center margin-top-20'>My Todos</h1>
       <div className='Todo-wrapper margin-x-y border-radius-10'>
         <TodoInput addTask={addTask} />
+        <button className='add-button' onClick={addButton}>
+        <i class="fa-solid fa-plus"></i>
+              </button>
         <div className='search-container '>
             <i className='search-icon fas fa-search'></i>
             <input className='font border-radius-20 text-center'
@@ -73,6 +81,11 @@ function App() {
               >
                 Completed
               </button>
+              {buttons.map((button) => (
+                <button key={button.id} className='secondarybtn'>
+                  {button.label}
+                </button>
+              ))}
               
             </div>
           </div>

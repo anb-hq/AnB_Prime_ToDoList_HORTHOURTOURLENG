@@ -20,7 +20,11 @@
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
-  
+
+  .completed-task h3,.completed-task p {
+    text-decoration: line-through;
+  }
+
   .btnd:hover, .btnc:hover, .btne:hover {
     transform: scale(1.25); 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
