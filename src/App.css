@@ -42,13 +42,6 @@ h1 {
 .add-button{
   font-size: 30px;
 }
-
-@media (max-width: 770px) {
-  .btn {
-    display: flex;
-    justify-content: space-between; 
-  }
-}
 .btn-area{
   overflow-y: scroll;
 }
@@ -58,6 +51,14 @@ h1 {
 .secondarybtn{
   height: 4vh;
 }
+@media (max-width: 770px) {
+  .btn {
+    display: flex;
+    justify-content: space-between; 
+  }
+}
+
+
 @media (min-width: 770px) {
   .btn-area{
     max-width:19%;

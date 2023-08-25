@@ -1,4 +1,4 @@
-export function addTask(tasks, setTasks, title, description) {
+  export function addTask(tasks, setTasks, title, description) {
     const newTask = { id: Date.now(), title, description, completed: false };
     setTasks([...tasks, newTask]);
   }
@@ -21,3 +21,4 @@ export function addTask(tasks, setTasks, title, description) {
     );
     setTasks(updatedTasks);
   }
+ 

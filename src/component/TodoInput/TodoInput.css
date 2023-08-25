@@ -22,12 +22,9 @@
 .primarybtn {
   background-color: #3498db; 
   color: #ffffff; 
-  border: none;
   border-radius: 30px; 
   padding: 12px 20px; 
   cursor: pointer;
-  display: inline-block; 
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; 
   margin: 2px;
   margin-top: 25px;
   font-size: 16px;
@@ -38,8 +35,6 @@
   border: none;
   padding: 12px 20px; 
   cursor: pointer;
-  display: inline-block; 
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; 
   margin: 2px;
   margin-top: 10px;
   font-size: 16px;
@@ -59,20 +54,25 @@ text-decoration: underline;
 .secondarybtn:hover{
   background: linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5);
 }
-@media(max-width:500px){
- .secondarybtn {
-    padding: 12px;
-  }
-}
 @media(max-width:769px){
   .secondarybtn{
     border-radius: 20px;
   }
-  .secondarybtn.active {
-    background: linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5);
-    color: white;
-    text-decoration: none;
-  }
+.secondarybtn.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5);
+  color: white;
+  text-decoration: none;
+}
+
+.secondarybtn.active span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
   .todo-input{
     flex-direction: column;
     margin-left: auto;

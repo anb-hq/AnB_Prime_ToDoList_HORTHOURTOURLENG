@@ -15,7 +15,7 @@ function App() {
   }, [tasks]);
   const addTask = (title, description) => {
     const newTask = { id: Date.now(), title, description, completed: false };
-    setTasks([...tasks, newTask]);
+    setTasks([ newTask, ...tasks, ]);
   };
   const removeTask = (taskId) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
