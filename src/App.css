@@ -1,71 +1,86 @@
 body {
-    background-image: url(https://wallpaper-house.com/data/out/9/wallpaper2you_322434.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    margin: 0; 
-    font-family: Arial, sans-serif;
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.Todo-wrapper {
+  padding: 2%;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 7px rgb(0, 0, 0);
+  overflow-x: hidden;
+}
+.Todo-wrapper::-webkit-scrollbar{
+  width: 2px;
+}
+
+.search-container {
+  position: relative;
+  left: 58%;
+}
+
+.search-container input {
+  width: 40%;
+  font-size: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 36%;
+  transform: translateY(-50%);
+}
+h1 {
+  color: var(--white)
+}
+
+.container-todo-list{
+  position: relative;
+}
+
+.btn-area{
+  overflow-y: scroll;
+}
+.btn-area::-webkit-scrollbar{
+  width: 0;
+}
+
+@media (max-width: 769px) {
+  .btn {
+    display: flex;
+    justify-content: space-between; 
   }
-  .Todo-wrapper {
-    background-color: azure;
-    padding: 2%;
-    width: 90%; 
-    max-width: 500px; 
-    margin: 3% auto;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0px 5px 7px wheat;
-    border-radius: 10px;
-  }
-  .description {
-    word-wrap: break-word;
-  }
-  
-  .search-container {
-    position: relative;
-  }
-  .search-container input{
-    border-radius: 20px;
-    font-size: 16px;
-  }
-  .secondarybtn.active {
-    background-color: #ff5722;
-    color: white;
-  }
-  .search-icon {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-  }
-  
-  
-  h1 {
-    color: white;
-    text-align: center;
-    margin-top: 20px; 
-  }
-  
-  .btn-area input {
-    margin: 12px;
-    width: 250px;
-    text-align: center;
-  }
-  .btn{
-    gap: 2px;
-  }
+}
+
+@media (min-width: 770px) {
   .btn-area{
+    max-width:19%;
+  }
+  .container-todo-list {
     display: flex;
     justify-content: space-between;
   }
-  
-  @media (max-width: 700px) {
-    .btn-area input {
-      width: 85%;
-      text-align: center;
-    }
-    .btn {
-      display: flex;
-      justify-content: space-betweenn
-    }
+  .todo-list {
+    width: 100%;
+  }
+  .Todo-wrapper {
+    max-width: 900px;
+  }
+  .secondarybtn {
+    width: 90%;
+  }
+  .btn {
+    border-right: 1px solid grey;
+    padding-right: 10px;
+  }
+  .todo-list-item {
+    margin-left: 20px;
   }
   
+  .search-icon{
+    left: 37%;
+  }
+}

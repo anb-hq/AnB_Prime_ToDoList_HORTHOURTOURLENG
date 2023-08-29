@@ -1,34 +1,22 @@
 .todo-list-item {
-    background-color: lightblue;
+  word-break: break-all;
+}
+
+  .todo-list-item .btndc {
     display: flex;
-    flex-direction: column; 
-    padding: 15px; 
-    margin-bottom: 10px;
-    border-radius: 20px;
-    margin-top: 10px;
+    align-items: center;
   }
   
-  p {
-    font-size: 16px; 
-    color: rgb(83, 93, 102);
-    margin-top: 0;
+  h3{
+    color: var(--black-blue);
   }
   
-  .btnd, .btnc, .btne {
-    font-size: 16px;
-    margin: 8px;
-    border-radius: 20px;
-    border: none;
-    background-color: white;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; 
+  .completed-task h3,.completed-task p {
+    text-decoration: line-through;
   }
-  
-  .btnd:hover, .btnc:hover, .btne:hover {
-    transform: scale(1.25); 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  
+.edit-popup{
+  width: 50%;
+}
   .edit-popup input {
     margin: 3px;
     width: 80%;
@@ -50,20 +38,16 @@
   
   .edit-popup {
     position: fixed;
-    border-radius: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
+    background-color: var(--white);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000; 
-    text-align: center;
+    
   }
-  .editbtn{
-    font-size: 16px;
+  @media(max-width:769px){
+    .edit-popup{
+      width: 70%;
+    }
   }
-  .edit-popup input{
-    font-size: 16px;
-  }
-  

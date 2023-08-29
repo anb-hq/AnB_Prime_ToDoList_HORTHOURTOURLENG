@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TodoList.css';
+import '../Button/Button.css'
 
 function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, updateTask }) {
   const [editingTaskId, setEditingTaskId] = useState(null);
@@ -41,12 +42,16 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
   return (
     <div className='todo-list'>
       {tasks
-        .filter((task) => (completedScreen ? task.completed : !task.completed))
-        .map((task) => (
-          <div className='todo-list-item' key={task.id}>
+          .filter((task) => (completedScreen ? task.completed : !task.completed))
+          .map((task) => (
+            <div
+              className={`todo-list-item flex flex-col margin-bottom-10 border-radius-20 margin-top-10 padding ${
+                task.completed ? 'completed-task' : ''
+              }`}
+            key={task.id}>
             <div>
-              <h3>{task.title}</h3>
-              <p className='description'>{task.description}</p>
+              <h3 className='font-t border-bottom '>{task.title}</h3>
+              <p className='font-p border-bottom'>{task.description}</p>
             </div>
             <div className='btndc'>
               <button className='btne' onClick={() => editTask(task.id)}>
@@ -69,22 +74,26 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
       {showBackdrop && <div className='backdrop'></div>}
 
       {showEditPopup && (
-        <div className='edit-popup'>
+        <div className='edit-popup text-center border-radius-30'>
           <div>
+            <p>Title</p>
            <input
+           className='font'
             type='text'
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
            />
+           <p>Description</p>
            <input
+           className='font'
             type='text'
             value={editedDescription}
             onChange={(e) => setEditedDescription(e.target.value)}
            />
           </div>
-          <div>
-            <button className='editbtn' onClick={saveEditedTask}>Save</button>
-            <button className='editbtn' onClick={cancelEdit}>Cancel</button>
+          <div className='margin'>
+            <button className='editbtn font' onClick={saveEditedTask}>Save</button>
+            <button className='editbtn font' onClick={cancelEdit}>Cancel</button>
           </div>
         </div>
       )}
@@ -93,6 +102,3 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
 }
 
 export default TodoList;
-
-
-
