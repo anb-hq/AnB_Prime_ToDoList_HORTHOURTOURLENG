@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TodoList.css';
+import '../Button/Button.css'
 
 function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, updateTask }) {
   const [editingTaskId, setEditingTaskId] = useState(null);
@@ -44,7 +45,7 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
           .filter((task) => (completedScreen ? task.completed : !task.completed))
           .map((task) => (
             <div
-              className={`todo-list-item flex flex-col padding-15 margin-bottom-10 border-radius-20 margin-top-10 ${
+              className={`todo-list-item flex flex-col margin-bottom-10 border-radius-20 margin-top-10 padding ${
                 task.completed ? 'completed-task' : ''
               }`}
             key={task.id}>
@@ -73,14 +74,16 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
       {showBackdrop && <div className='backdrop'></div>}
 
       {showEditPopup && (
-        <div className='edit-popup padding-20 text-center border-radius-30'>
+        <div className='edit-popup text-center border-radius-30'>
           <div>
+            <p>Title</p>
            <input
            className='font'
             type='text'
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
            />
+           <p>Description</p>
            <input
            className='font'
             type='text'
@@ -88,7 +91,7 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
             onChange={(e) => setEditedDescription(e.target.value)}
            />
           </div>
-          <div>
+          <div className='margin'>
             <button className='editbtn font' onClick={saveEditedTask}>Save</button>
             <button className='editbtn font' onClick={cancelEdit}>Cancel</button>
           </div>

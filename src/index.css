@@ -3,12 +3,10 @@
 /* my colors  */
 :root {
     --black-blue: #21295C;
-    --red-button-hover: #ff5722;
-    --skyblue-background: #86A8E7;
-    --Grey-Color: grey;
-    --Black-Color:black;
+    --red-button: #F84F68;
+    --white-blue: #EFECFF;
+    --yellow-gold:#EFBE00;
     --white: white;
-    --Greyish-Blue-Color: rgb(0, 0, 0) 
     --roboto: "Roboto", sans-serif;
     --title: 20px;
     --paragraph: 16px;
@@ -18,7 +16,6 @@
     border: none;
   }
   
-
   button:hover {
     cursor: pointer;
   }
@@ -52,9 +49,7 @@
   .w-90{
     width: 90%;
   }
-  .margin-y{
-    margin-bottom: 14px;
-  }
+  
   .margin-bottom-10{
     margin-bottom: 10px;
   }
@@ -67,27 +62,18 @@
   .margin{
     margin: 12px;
   }
-  .margin-3{
-    margin: 3px;
-  }
+  
   .margin-x-y{
     margin: 3% auto;
   }
   .padding {
     padding: 12px;
   }
-  .padding-15{
-    padding: 15px;
-  }
-  .padding-10{
-    padding: 10px;
-  }
+  
   .padding-x-y{
     padding: 12px 20px;
   }
-  .padding-20{
-    padding: 20px;
-  }
+
   .gap{
     gap:2px;
   }
@@ -95,9 +81,7 @@
   .border-bottom{
     border-bottom: 1px solid grey;
   }
-  .border-radius-30{
-    border-radius: 30px;
-  }
+  
   .border-radius-10{
     border-radius: 10px;
   }

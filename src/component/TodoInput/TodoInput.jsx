@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TodoInput.css';
+import '../Button/Button.css'
 function TodoInput({ addTask }) {
   const [task, setTask] = useState({
     title: '',
@@ -56,7 +57,7 @@ function TodoInput({ addTask }) {
       </div>
       <div className='todo-input-button padding'>
         <button type='button' onClick={handleAddTask} className='primarybtn'>
-          Add
+          Add 
         </button>
       </div>
     </div>

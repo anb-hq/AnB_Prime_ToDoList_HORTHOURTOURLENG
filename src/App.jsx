@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import TodoInput from './component/TodoInput/TodoInput';
 import TodoList from './component/TodoList/TodoList';
-
+import './component/Button/Button.css'
 function App() {
   const [completedScreen, setCompletedScreen] = useState(false);
   const [tasks, setTasks] = useState(() => {
@@ -15,7 +15,7 @@ function App() {
   }, [tasks]);
   const addTask = (title, description) => {
     const newTask = { id: Date.now(), title, description, completed: false };
-    setTasks([ newTask, ...tasks, ]);
+    setTasks([ newTask,...tasks]);
   };
   const removeTask = (taskId) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
@@ -43,20 +43,11 @@ function App() {
     );
     setFilteredTasks(filtered);
   }, [searchQuery, tasks]);
-  const [buttons, setButtons] = useState([]);
-  const addButton = () => {
-    const newButton = { id: Date.now(), label: 'NewButton' };
-    setButtons([...buttons, newButton]);
-  };
-
   return (
     <div className='App'>
       <h1 className='text-center margin-top-20'>My Todos</h1>
       <div className='Todo-wrapper margin-x-y border-radius-10'>
         <TodoInput addTask={addTask} />
-        <button className='add-button' onClick={addButton}>
-        <i class="fa-solid fa-plus"></i>
-              </button>
         <div className='search-container '>
             <i className='search-icon fas fa-search'></i>
             <input className='font border-radius-20 text-center'
@@ -65,27 +56,23 @@ function App() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-          </div>
+            
+        </div>
         <div className='container-todo-list'>
           <div className='btn-area flex space-between'>
-            <div className='btn gap padding-10'>
+            <div className='btn gap'>
               <button
                 className={`secondarybtn ${completedScreen === false ? 'active' : ''}`}
                 onClick={() => setCompletedScreen(false)}
               >
-                Todo
+                Todo({tasks.filter(task => !task.completed).length})
               </button>
               <button
                 className={`secondarybtn ${completedScreen === true ? 'active' : ''}`}
                 onClick={() => setCompletedScreen(true)}
               >
-                Completed
+                Completed({tasks.filter(task => task.completed).length})
               </button>
-              {buttons.map((button) => (
-                <button key={button.id} className='secondarybtn'>
-                  {button.label}
-                </button>
-              ))}
               
             </div>
           </div>

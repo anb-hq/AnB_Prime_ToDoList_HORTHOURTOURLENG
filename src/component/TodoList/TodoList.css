@@ -11,25 +11,12 @@
     color: var(--black-blue);
   }
   
-  .btnd, .btnc, .btne {
-    font-size: 16px;
-    margin: 5px;
-    border-radius: 20px;
-    border: none;
-    background-color: white;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-
   .completed-task h3,.completed-task p {
     text-decoration: line-through;
   }
-
-  .btnd:hover, .btnc:hover, .btne:hover {
-    transform: scale(1.25); 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-
+.edit-popup{
+  width: 50%;
+}
   .edit-popup input {
     margin: 3px;
     width: 80%;
@@ -59,4 +46,8 @@
     z-index: 1000; 
     
   }
-  
+  @media(max-width:769px){
+    .edit-popup{
+      width: 70%;
+    }
+  }
