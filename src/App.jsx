@@ -33,6 +33,7 @@ function App() {
     );
     setTasks(updatedTasks);
   };
+
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredTasks, setFilteredTasks] = useState([]);
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
     );
     setFilteredTasks(filtered);
   }, [searchQuery, tasks]);
+  
   return (
     <div className='App'>
       <h1 className='text-center margin-top-20'>My Todos</h1>

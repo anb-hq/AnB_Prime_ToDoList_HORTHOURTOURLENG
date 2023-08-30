@@ -31,32 +31,12 @@ body {
   left: 36%;
   transform: translateY(-50%);
 }
-h1 {
-  color: var(--white)
-}
 
 .container-todo-list{
   position: relative;
 }
 
-.btn-area{
-  overflow-y: scroll;
-}
-.btn-area::-webkit-scrollbar{
-  width: 0;
-}
-
-@media (max-width: 769px) {
-  .btn {
-    display: flex;
-    justify-content: space-between; 
-  }
-}
-
 @media (min-width: 770px) {
-  .btn-area{
-    max-width:19%;
-  }
   .container-todo-list {
     display: flex;
     justify-content: space-between;
@@ -69,10 +49,6 @@ h1 {
   }
   .secondarybtn {
     width: 90%;
-  }
-  .btn {
-    border-right: 1px solid grey;
-    padding-right: 10px;
   }
   .todo-list-item {
     margin-left: 20px;
