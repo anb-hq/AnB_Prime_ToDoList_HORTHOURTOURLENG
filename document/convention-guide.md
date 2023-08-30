@@ -1,41 +1,185 @@
 # General
-- Naming rules: use lowercase with dash (-) NOT SPACE
-- Color:
-  - Primary Color: #3498db (used in .primarybtn:hover)
-  - Background Color: #ff5722 (used in .primarybtn:hover)
-  - Background Gradient: linear-gradient(to bottom, #91EAE4, #86A8E7, #7F7FD5) (used in .secondarybtn:hover, .secondarybtn.active)
-  - Grey Color: grey (used in .btn, .btn-secondary, .btn-area input)
-  - Black Color: black (used in .todo-input, .todo-input-item, .todo-input-button, .todo-list-item .btndc, p, h3, .btnd, .btnc, .btne)
-  - White Color: white (used in .btnd, .btnc, .btne, .edit-popup input, .edit-popup button, .backdrop, .edit-popup)
-  - Red Color: red (used in .btn-primary, .search-icon)
-  - Greyish Blue Color: rgb(0, 0, 0) (used in .box-shadow)
-- ** No inline CSS **
+-  The browser's default style can be removed with a CSS reset. There is a CSS reset function in index.css.
 
+- Colors:
+
+  - black-blue: `#21295C`
+  - red-button: `#f84F68`
+  - white-blue: `#EFECFF`
+  - white: `white`
+
+- Font:
+
+  - Font family: `Roboto` , sans-serif
+  - Title font size: `20px`
+  - Paragraph font size: `16px`
+
+- No inline CSS
 # Project folder structure
 
-Project
+```
+|--- document/
+|    |--- convention-guide.md
+|
+|--- node_modules/
+|
+|--- public/
+|
+|--- src/
+|    |--- component/
+|    |    |--- Button/
+|    |         |--- Button.css
+|    |    |--- TodoInput/
+|    |         |--- TodoInput.css
+|    |         |--- TodoInput.jsx
+|    |    |--- TodoList/
+|    |         --- TodoList.css
+|    |         |--- TodoList.jsx
+|    |
+|
+|--- App.css
+|--- App.jsx
+|--- index.css
+|--- main.jsx
 
-# Padding Values:
+```
+# My index.css root
+```css
+:root {
+    --black-blue: #21295C;
+    --red-button: #F84F68;
+    --white-blue: #EFECFF;
+    --yellow-gold:#EFBE00;
+    --white: white;
+    --roboto: "Roboto", sans-serif;
+    --title: 20px;
+    --paragraph: 16px;
+  }
+```
+In this case if you want to change color just change it , example you want to change the title size 
 
-- Todo-wrapper: padding: 2%;
-- search-container input: padding: 8px;
-- todo-input: padding: 12px;
-- todo-input-item: padding: 12px;
-- todo-input-button: padding: 12px;
-- todo-list-item: padding: 15px;
-- btn-area input: margin: 12px;
-- btn: padding: 10px;
-- edit-popup: padding: 20px;
+```css
 
-# Margin Values:
+.font-t{
+    font-size: var(--title);
+  }
 
-- Todo-wrapper: margin: 3% auto;
-- search-container: margin: 3px;
-- todo-input: margin-bottom: 15px;
-- todo-input-item: margin-bottom: 15px;
-- todo-input-button: margin: 12px;
-- todo-list-item: margin-bottom: 10px; margin-top: 10px;
-- btn-area input: margin: 12px;
-- btn: gap: 2px; padding: 10px;
-- edit-popup input: margin: 3px;
-- edit-popup button: margin: 3px;
+```
+so just change the --title : 24px.
+
+# Must Follow
+
+##  Margin:
+  
+  -  `.margin-bottom-10` :  margin bottom 10px
+
+  - `.margin-top-10` :  margin top 10px
+  
+  - `.margin-top-20` :  margin top 20px
+
+  - `.margin` :  margin 12px
+
+  - `.margin-x-y`:  margin 3% auto
+
+## How to use
+
+```html
+<h1 className='text-center margin-top-20'>My Todos</h1>
+```
+
+## Padding:
+
+  - `.padding` :  padding 12px
+
+  - `.padding-x-y`:  padding 12px 20px
+
+## How to use
+
+```html
+<div className='todo-input-button padding'>
+        <button type='button' onClick={handleAddTask} className='primarybtn'>
+          Add 
+        </button>
+      </div>
+```
+## Flex:
+
+ - `.flex` :  display flex
+
+ - `.flex-col` :  flex-direction column
+
+ - `.text-center`:  text-center center
+
+ - `.space-between`:  justify-contnet space-between
+
+ - `.justify-center`: justify-content center
+
+## How to use
+
+```html
+<div className='todo-input-item flex flex-col align-center padding'>
+```
+
+## width:
+
+ - `.w-f` : width 100%
+
+ - `w.90` : width 90%
+
+## How to use
+
+```html
+ <div className='todo-input w-f ....... '>
+```
+
+
+# Naming Conventions
+ 
+ - Varibles and Functions:
+   
+   - Use description names that convey the purpose of the vairable or function.
+   - Follow CamelCase for function and method names   
+  (exmaple: `editTask`)
+  ```jsx
+      const [editingTaskId, setEditingTaskId] = useState(null);
+
+      const editTask = (taskId) => {
+        // ...
+        };  
+  ```
+- Class:
+
+  - Use lowercase and hyphen-separated class names(example: `todo-list`,`edit-popup`).
+  - Reflect the purpose of the element in the class name.
+```html
+    <div className='todo-list-item'>
+    {/* ... */}
+    </div>
+```
+
+# Comments:
+
+- Use comments to explain complex logic, especially in functions that have multiple steps.
+
+- Keep comments concise and aligned with the code they're explaining.
+
+``` jsx
+const saveEditedTask = () => {
+  if (editingTaskId !== null) {
+    // Update task with new data
+    setEditingTaskId(null);
+    // ...
+  }
+};
+```
+
+
+
+# Modal :
+
+- When the "Edit" button is clicked, the modal appears.
+- The modal lets users edit the task's title and description.
+- Users can save changes or cancel the edit.
+- A backdrop prevents interactions outside the modal.
+
+![pop-card](/src/assets/Edit-pop-up.png)
