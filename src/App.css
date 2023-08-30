@@ -1,7 +1,6 @@
 body {
-
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--roboto);
 }
 
 .Todo-wrapper {
@@ -24,7 +23,6 @@ body {
 
 .search-container input {
   width: 40%;
-  font-size: 20px;
 }
 
 .search-icon {
