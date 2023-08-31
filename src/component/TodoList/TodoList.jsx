@@ -91,9 +91,9 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
             onChange={(e) => setEditedDescription(e.target.value)}
            />
           </div>
-          <div className='margin'>
-            <button className='editbtn font' onClick={saveEditedTask}>Save</button>
-            <button className='editbtn font' onClick={cancelEdit}>Cancel</button>
+          <div className='buttons margin'>
+            <button className='save' onClick={saveEditedTask}>Save</button>
+            <button className='cancel' onClick={cancelEdit}>Cancel</button>
           </div>
         </div>
       )}
