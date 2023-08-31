@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import TodoInput from './component/TodoInput/TodoInput';
-import TodoList from './component/TodoList/TodoList';
-import './component/Button/Button.css'
+import TodoWrapper from './component/TodoWrapper/TodoWrapper';
 function App() {
   const [completedScreen, setCompletedScreen] = useState(false);
   const [tasks, setTasks] = useState(() => {
@@ -48,46 +46,18 @@ function App() {
   return (
     <div className='App'>
       <h1 className='text-center margin-top-20'>My Todos</h1>
-      <div className='Todo-wrapper margin-x-y border-radius-10'>
-        <TodoInput addTask={addTask} />
-        <div className='search-container '>
-            <i className='search-icon fas fa-search'></i>
-            <input className='font border-radius-20 text-center'
-              type='text'
-              placeholder='Search Title'
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            
-        </div>
-        <div className='container-todo-list'>
-          <div className='btn-area flex space-between'>
-            <div className='btn gap'>
-              <button
-                className={`secondarybtn ${completedScreen === false ? 'active' : ''}`}
-                onClick={() => setCompletedScreen(false)}
-              >
-                Todo({tasks.filter(task => !task.completed).length})
-              </button>
-              <button
-                className={`secondarybtn ${completedScreen === true ? 'active' : ''}`}
-                onClick={() => setCompletedScreen(true)}
-              >
-                Completed({tasks.filter(task => task.completed).length})
-              </button>
-              
-            </div>
-          </div>
-          
-          <TodoList
-            tasks={filteredTasks}
-            removeTask={removeTask}
-            completedScreen={completedScreen}
-            toggleTaskCompletion={toggleTaskCompletion}
-            updateTask={updateTask}
-          />
-        </div>
-      </div>
+      <TodoWrapper
+        addTask={addTask}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        completedScreen={completedScreen}
+        setCompletedScreen={setCompletedScreen}
+        tasks={tasks}
+        filteredTasks={filteredTasks}
+        removeTask={removeTask}
+        toggleTaskCompletion={toggleTaskCompletion}
+        updateTask={updateTask}
+      />
     </div>
   );
 }
