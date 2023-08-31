@@ -35,8 +35,10 @@
 |    |    |--- TodoList/
 |    |         |--- TodoList.css
 |    |         |--- TodoList.jsx
+|    |    |--- TodoWrapper/
+|    |         |--- TodoWrapper.css
+|    |         |--- TodoWrapper.jsx
 |    |
-|
 |--- App.css
 |--- App.jsx
 |--- index.css
@@ -49,7 +51,6 @@
     --black-blue: #21295C;
     --red-button: #F84F68;
     --white-blue: #EFECFF;
-    --yellow-gold:#EFBE00;
     --white: white;
     --roboto: "Roboto", sans-serif;
     --title: 20px;
@@ -124,7 +125,7 @@ so just change the --title : 24px.
 
  - `.w-f` : width 100%
 
- - `w.90` : width 90%
+ - `w-90` : width 90%
 
 ## How to use
 
@@ -177,9 +178,11 @@ const saveEditedTask = () => {
 
 # Modal :
 
+Modal: Used to describe something that has characteristics of a mode or pertains to a particular way of functioning, often implying a temporary state or a specific set of rules or conditions.
+
 - When the "Edit" button is clicked, the modal appears.
 - The modal lets users edit the task's title and description.
 - Users can save changes or cancel the edit.
 - A backdrop prevents interactions outside the modal.
 
-![pop-card](/src/assets/Edit-pop-up.png)
+![pop-card](/src/assets/Edit-popup.png)

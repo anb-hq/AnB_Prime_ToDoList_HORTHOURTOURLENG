@@ -15,7 +15,7 @@ const TodoWrapper = ({
   updateTask
 }) => {
   return (
-    <div className='Todo-wrapper margin-x-y border-radius-10'>
+    <div className='todo-wrapper margin-x-y border-radius-10'>
      <TodoInput addTask={addTask} />
         <div className='search-container '>
             <i className='search-icon fas fa-search'></i>
