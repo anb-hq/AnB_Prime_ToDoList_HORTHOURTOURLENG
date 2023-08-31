@@ -1,5 +1,5 @@
 .primarybtn {
-    background-color:var(--yellow-gold);
+    background-color:var(--red-button);
     color:var(--white); 
     border-radius: 30px; 
     padding: 12px 20px; 
@@ -24,7 +24,6 @@
   
   
   .primarybtn:hover {
-    background-color:var( --red-button); 
     transform: scale(1.05); 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
   }
@@ -44,6 +43,40 @@
     transform: scale(1.25); 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
+  .btn-area{
+    overflow-y: scroll;
+  }
+  .btn-area::-webkit-scrollbar{
+    width: 0;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .buttons .save {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .buttons .cancel {
+    background-color: #FF5733;
+    color: white;
+  }
+  .save:hover ,.cancel:hover{
+    transform: scale(1.15); 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
   @media(max-width:769px){
   
     .secondarybtn.active {
@@ -60,4 +93,17 @@
         margin-top: 0;
         width: 150px;
       }
-}
+      .btn {
+        display: flex;
+        justify-content: space-between; 
+      }
+  }
+  @media(min-width: 770px){
+    .btn-area{
+      max-width:19%;
+    }
+    .btn {
+      border-right: 1px solid grey;
+      padding-right: 10px;
+    }
+  }

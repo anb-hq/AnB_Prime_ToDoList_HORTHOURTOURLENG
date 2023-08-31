@@ -33,7 +33,7 @@
 |    |         |--- TodoInput.css
 |    |         |--- TodoInput.jsx
 |    |    |--- TodoList/
-|    |         --- TodoList.css
+|    |         |--- TodoList.css
 |    |         |--- TodoList.jsx
 |    |
 |
