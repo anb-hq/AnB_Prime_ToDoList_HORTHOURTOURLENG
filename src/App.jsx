@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import TodoWrapper from './component/TodoWrapper/TodoWrapper';
 function App() {
-  const [count, setCount] = useState(0)
+  const [completedScreen, setCompletedScreen] = useState(false);
+  const [tasks, setTasks] = useState(() => {
+    const localValue = localStorage.getItem('ITEMS');
+    if (localValue == null) return [];
+    return JSON.parse(localValue);
+  });
+  useEffect(() => {
+    localStorage.setItem('ITEMS' , JSON.stringify(tasks));
+  }, [tasks]);
+  const addTask = (title, description) => {
+    const newTask = { id: Date.now(), title, description, completed: false };
+    setTasks([ newTask,...tasks]);
+  };
+  const removeTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+  const toggleTaskCompletion = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+  const updateTask = (taskId, newTitle, newDescription) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, title: newTitle, description: newDescription } : task
+    );
+    setTasks(updatedTasks);
+  };
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredTasks, setFilteredTasks] = useState([]);
+  useEffect(() => {
+    const filtered = tasks.filter(
+      (task) =>
+        task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        task.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredTasks(filtered);
+  }, [searchQuery, tasks]);
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className='App'>
+      <h1 className='text-center margin-top-20'>My Todos</h1>
+      <TodoWrapper
+        addTask={addTask}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        completedScreen={completedScreen}
+        setCompletedScreen={setCompletedScreen}
+        tasks={tasks}
+        filteredTasks={filteredTasks}
+        removeTask={removeTask}
+        toggleTaskCompletion={toggleTaskCompletion}
+        updateTask={updateTask}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;

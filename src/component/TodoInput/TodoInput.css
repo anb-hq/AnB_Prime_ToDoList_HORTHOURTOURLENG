@@ -1,0 +1,34 @@
+
+.todo-input {
+  margin-bottom: 15px; 
+}
+
+.todo-input-item {
+  margin-bottom: 15px; 
+  width: 50%;
+}
+
+.td {
+  margin-bottom: 14px;
+  font-size: var(--title);
+}
+
+.todo-input-item input {
+  padding: 8px;
+  width: 100%;
+  font-size: var(--paragraph);
+}
+
+
+@media(max-width:769px){
+  .todo-input{
+    flex-direction: column;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  .todo-input-item{
+    width: 80%;
+  }
+  
+
+}
