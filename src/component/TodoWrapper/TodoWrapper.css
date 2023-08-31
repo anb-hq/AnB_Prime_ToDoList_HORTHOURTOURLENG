@@ -13,17 +13,17 @@
   
   .search-container {
     position: relative;
-    left: 58%;
+    left: 63%;
   }
   
   .search-container input {
-    width: 40%;
+    width: 35%;
   }
   
   .search-icon {
     position: absolute;
     top: 50%;
-    left: 36%;
+    left: 31.2%;
     transform: translateY(-50%);
   }
   
@@ -50,6 +50,12 @@
     }
     
     .search-icon{
-      left: 37%;
+      left: 33%;
     }
+  }
+  @media (max-width: 370px){
+    .search-container input::placeholder{
+      text-align: start;
+    }
+
   }
