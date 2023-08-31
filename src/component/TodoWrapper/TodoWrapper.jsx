@@ -21,7 +21,7 @@ const TodoWrapper = ({
             <i className='search-icon fas fa-search'></i>
             <input className='font border-radius-20 text-center'
               type='text'
-              placeholder='Search Title'
+              placeholder='Search'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
