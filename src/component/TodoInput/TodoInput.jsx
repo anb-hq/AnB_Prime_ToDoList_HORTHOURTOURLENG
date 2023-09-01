@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './TodoInput.css';
-import '../Button/Button.css'
+import '../Button/Button.css';
 
 function TodoInput({ addTask }) {
+
   const [task, setTask] = useState({
     title: '',
     description: ''
   });
 
+  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setTask((prevTask) => ({
@@ -16,9 +18,11 @@ function TodoInput({ addTask }) {
     }));
   };
 
+  // Function to handle adding a new task
   const handleAddTask = () => {
     if (task.title && task.description) {
       addTask(task.title, task.description);
+      // Reset the input values after adding the task
       setTask({
         title: '',
         description: ''
@@ -26,6 +30,7 @@ function TodoInput({ addTask }) {
     }
   };
 
+  // Function to handle pressing Enter key
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleAddTask();
@@ -33,7 +38,7 @@ function TodoInput({ addTask }) {
   };
 
   return (
-    <div className='todo-input w-f flex align-center justify-center border-bottom  '>
+    <section className='todo-input w-f flex align-center justify-center border-bottom'>
       <div className='todo-input-item flex flex-col align-center padding'>
         <label className='td'>Title</label>
         <input
@@ -58,11 +63,12 @@ function TodoInput({ addTask }) {
       </div>
       <div className='todo-input-button padding'>
         <button type='button' onClick={handleAddTask} className='primarybtn'>
-          Add 
+          Add
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default TodoInput;
+
