@@ -161,17 +161,32 @@ so just change the --title : 24px.
 # Comments:
 
 - Use comments to explain complex logic, especially in functions that have multiple steps.
-
+- Use // for single line comment.
 - Keep comments concise and aligned with the code they're explaining.
+-Use {/* comment here... */} to comment inside jsx.
 
 ``` jsx
-const saveEditedTask = () => {
-  if (editingTaskId !== null) {
-    // Update task with new data
-    setEditingTaskId(null);
-    // ...
-  }
-};
+
+  // State for managing tasks
+  const [tasks, setTasks] = useState(() => {
+    // Retrieve tasks from localStorage on initial load
+    const localValue = localStorage.getItem('ITEMS');
+    if (localValue == null) return [];
+    return JSON.parse(localValue);
+  });
+```
+``` jsx
+{/* Show backdrop when editing */}
+      {showBackdrop && <div className='backdrop'></div>}
+
+      {/* Show edit popup when editing */}
+      {showEditPopup && (
+        <div className='edit-popup text-center border-radius-30'>
+          <div> 
+           {/* Additional UI components and content for the edit popup */}
+  </div>
+)}
+
 ```
 
 

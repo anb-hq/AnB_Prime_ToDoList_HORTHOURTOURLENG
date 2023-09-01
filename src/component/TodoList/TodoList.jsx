@@ -1,62 +1,66 @@
 import React, { useState } from 'react';
 import './TodoList.css';
-import '../Button/Button.css'
+import '../Button/Button.css';
 
 function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, updateTask }) {
+  // State variables for editing a task
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTitle, setEditedTitle] = useState('');
   const [editedDescription, setEditedDescription] = useState('');
-  const [showEditPopup, setShowEditPopup] = useState(false); 
+  const [showEditPopup, setShowEditPopup] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
 
+  // Function to initiate the editing of a task
   const editTask = (taskId) => {
     const taskToEdit = tasks.find((task) => task.id === taskId);
     if (taskToEdit) {
       setEditingTaskId(taskId);
       setEditedTitle(taskToEdit.title);
       setEditedDescription(taskToEdit.description);
-      setShowEditPopup(true); 
+      setShowEditPopup(true);
       setShowBackdrop(true);
     }
   };
 
+  // Function to save the edited task
   const saveEditedTask = () => {
     if (editingTaskId !== null) {
       updateTask(editingTaskId, editedTitle, editedDescription);
       setEditingTaskId(null);
       setEditedTitle('');
       setEditedDescription('');
-      setShowEditPopup(false); 
+      setShowEditPopup(false);
       setShowBackdrop(false);
     }
   };
 
+  // Function to cancel the editing of a task
   const cancelEdit = () => {
     setEditingTaskId(null);
     setEditedTitle('');
     setEditedDescription('');
-    setShowEditPopup(false); 
+    setShowEditPopup(false);
     setShowBackdrop(false);
   };
 
   return (
-    <div className='todo-list'>
+    <section className='todo-list'>
       {tasks
-          .filter((task) => (completedScreen ? task.completed : !task.completed))
-          .map((task) => (
-            <div
-              className={`todo-list-item flex flex-col margin-bottom-10 border-radius-20 margin-top-10 padding ${
-                task.completed ? 'completed-task' : ''
-              }`}
-            key={task.id}>
+        .filter((task) => (completedScreen ? task.completed : !task.completed))
+        .map((task) => (
+          <div
+            className={`todo-list-item flex flex-col margin-bottom-10 border-radius-20 margin-top-10 padding ${
+              task.completed ? 'completed-task' : ''
+            }`}
+            key={task.id}
+          >
             <div>
-              <h3 className='font-t border-bottom '>{task.title}</h3>
+              <h3 className='font-t border-bottom'>{task.title}</h3>
               <p className='font-p border-bottom'>{task.description}</p>
             </div>
             <div className='btndc'>
               <button className='btne' onClick={() => editTask(task.id)}>
                 <i className='fa-solid fa-pen-to-square'></i>
-                
               </button>
               <button className='btnd' onClick={() => removeTask(task.id)}>
                 <i className='fa-solid fa-xmark'></i>
@@ -71,33 +75,39 @@ function TodoList({ tasks, completedScreen, toggleTaskCompletion, removeTask, up
             </div>
           </div>
         ))}
+      {/* Show backdrop when editing */}
       {showBackdrop && <div className='backdrop'></div>}
 
+      {/* Show edit popup when editing */}
       {showEditPopup && (
         <div className='edit-popup text-center border-radius-30'>
           <div>
             <p>Title</p>
-           <input
-           className='font'
-            type='text'
-            value={editedTitle}
-            onChange={(e) => setEditedTitle(e.target.value)}
-           />
-           <p>Description</p>
-           <input
-           className='font'
-            type='text'
-            value={editedDescription}
-            onChange={(e) => setEditedDescription(e.target.value)}
-           />
+            <input
+              className='font'
+              type='text'
+              value={editedTitle}
+              onChange={(e) => setEditedTitle(e.target.value)}
+            />
+            <p>Description</p>
+            <input
+              className='font'
+              type='text'
+              value={editedDescription}
+              onChange={(e) => setEditedDescription(e.target.value)}
+            />
           </div>
           <div className='buttons margin'>
-            <button className='save' onClick={saveEditedTask}>Save</button>
-            <button className='cancel' onClick={cancelEdit}>Cancel</button>
+            <button className='save' onClick={saveEditedTask}>
+              Save
+            </button>
+            <button className='cancel' onClick={cancelEdit}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
