@@ -1,5 +1,3 @@
-# I did code all by myself but on git when I have a problem that can't merge from develop to main. Mr. Moonlight helped me solve it.
-
 # Project Description
 
 This project is an individual project to make a TodoList website that has:
@@ -75,4 +73,5 @@ I used 4 main branches for my project :
  
  - [UI Prototype](https://www.figma.com/file/Ont3MlX1lbf2nKBEjuul89/Todo-Tourleng?type=design&node-id=0%3A1&mode=design&t=atUhlhfiwInE8HDn-1)
  - [Flow Guide](https://zpl.io/kDkG4mq)
- 
+# noted:
+I did code all by myself but on git when I have a problem that can't merge from develop to main. Mr. Moonlight helped me solve it.
